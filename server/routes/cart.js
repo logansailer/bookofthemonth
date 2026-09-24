@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/", (req, res) => {
+  // assumption: predefined set of books is fine for a showcase. A real application would connect to a database like MySQL 
   res.json({
     cart: [
       {

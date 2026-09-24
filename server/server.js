@@ -4,6 +4,7 @@ const cors = require("cors");
 const app = express();
 
 // middleware
+//assumption: obviously would be better to host separately, but this works for sake of demo
 app.use(express.static("public"));
 app.use(express.json());
 app.use(cors());

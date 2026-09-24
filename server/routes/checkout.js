@@ -13,9 +13,11 @@ router.post("/", (req, res) => {
       });
     }
 
+    // Assumption: not stored so this would be functionally useless. A real application would have a "Orders" database where info like this is saved.
     const orderId = `BOTM-${Math.floor(100000 + Math.random() * 900000)}`;
 
     const shipDate = new Date();
+    // Assumption: fake data for the sake of demo. Real application would require much more calculation
     shipDate.setDate(shipDate.getDate() + 7);
 
     res.status(200).json({

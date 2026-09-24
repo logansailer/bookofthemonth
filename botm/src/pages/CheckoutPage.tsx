@@ -102,7 +102,7 @@ const Checkout = () => {
 
   if (confirmation) {
     return (
-      <div className="mx-auto min-h-[calc(100vh-263px)] max-w-3xl py-20 text-center">
+      <div className="mx-auto min-h-[calc(100vh-263px)] max-w-3xl py-15 text-center">
         <h1 className="font-titleFont text-4xl">Order Confirmed!</h1>
 
         <p className="mt-6 text-lg">Thank you for your order.</p>
@@ -123,11 +123,11 @@ const Checkout = () => {
   }
 
   return (
-    <div className="mx-auto max-w-7xl py-20 px-6">
+    <div className="mx-auto max-w-7xl py-10 px-6">
       <h1 className="font-titleFont text-3xl">Checkout</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-10">
-        {/* Order */}
+        {/* Order Items*/}
         <div>
           <h2 className="text-2xl font-medium">Your Order</h2>
 

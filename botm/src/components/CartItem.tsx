@@ -12,6 +12,7 @@ interface CartItemProps {
   showQuantityControls?: boolean;
 }
 
+// assumption: fine to use static address as this is hosted locally, a real application would have a dedicated hos for the images
 const APIURL = "http://localhost:3000";
 
 const CartItem = ({
@@ -66,7 +67,7 @@ const CartItem = ({
         <p className="font-semibold">
           ${(item.price * item.quantity).toFixed(2)}
         </p>
-        
+
         {onRemove && (
           <button
             onClick={() => onRemove(item.id)}

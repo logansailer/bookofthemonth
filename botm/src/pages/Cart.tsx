@@ -16,7 +16,7 @@ interface CartItem {
 const Cart = () => {
   const navigate = useNavigate();
 
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [cartItems, setCartItems] = useState<CartItem[]>([]); //Tradeoff: stored locally in React instead of global state like Redux. It saves a lot of time in a small proof on concept like this, but a real application like this would need a shared state.
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -37,15 +37,18 @@ const Cart = () => {
     fetchCart();
   }, []);
 
+  // tradeoff: should be done on backend for safety, but this si fine for the sake of a demo
   const total = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0,
   );
 
+  // tradeoff: only done in frontend state for the sake of showing its possible, but ass no update is sent to the API, the changes do not persist into the checkout. Didn't want to have to reset the data in the server every time just to show this off.
   const handleRemove = (productId: number) => {
     setCartItems((items) => items.filter((item) => item.id !== productId));
   };
 
+  // tradeoff: only done in frontend state for the sake of showing its possible, but ass no update is sent to the API, the changes do not persist into the checkout. Didn't want to have to reset the data in the server every time just to show this off.
   const handleUpdateQuantity = (productId: number, quantity: number) => {
     if (quantity < 1) return;
 
@@ -65,7 +68,7 @@ const Cart = () => {
   }
 
   return (
-    <div className="mx-auto max-w-7xl min-h-[calc(100vh-263px)] py-20 px-6">
+    <div className="mx-auto max-w-7xl min-h-[calc(100vh-263px)] py-15 px-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         {/* Cart items */}
         <div className="w-full pr-10">
@@ -76,6 +79,7 @@ const Cart = () => {
           ) : (
             <div className="mt-6">
               {cartItems.map((item) => (
+                // tradeoff: passing cart state back and forth between cart and cartitems could be simplified with global state, but for the purpose of this demo it keeps cartitem clean and reusable
                 <CartItem
                   key={item.id}
                   item={item}
@@ -87,7 +91,7 @@ const Cart = () => {
           )}
         </div>
 
-        {/* Summary */}
+        {/* Cart Summary */}
         <div className="bg-[#fafafa] py-6 px-4 h-fit">
           <div className="border-b border-b-gray-400 pb-6">
             <h2 className="text-2xl font-medium font-titleFont">Cart Total</h2>
