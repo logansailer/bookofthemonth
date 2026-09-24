@@ -1,7 +1,7 @@
 ## How to Run
 
 ### Requirements:
-npm
+npm,
 node.js
 
 ### 1. Install and start server
