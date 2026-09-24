@@ -25,7 +25,7 @@ const CartItem = ({
     <div className="p-3 gap-4 mt-6 grid grid-cols-2 md:grid-cols-[auto_1fr_auto_auto]">
       <div className="flex justify-center items-center gap-2">
         <img
-          className="w-28 object-cover"
+          className="max-w-20 object-cover"
           src={`${APIURL}${item.image}`}
           alt={item.title}
         />
@@ -36,7 +36,7 @@ const CartItem = ({
         <p className="text-gray-500">{item.author}</p>
       </div>
 
-      <div className="flex items-center gap-2 whitespace-nowrap">
+      <div className="flex justify-center items-center gap-2 whitespace-nowrap">
         <p className="text-sm">Quantity</p>
 
         {showQuantityControls ? (
