@@ -14,7 +14,7 @@ interface CartItem {
 
 interface OrderConfirmation {
   orderId: string;
-  shipDate: string;
+  estimatedShipDate: string;
 }
 
 const user = {
@@ -69,7 +69,7 @@ const Checkout = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          cart: cartItems,
+          bookIds: cartItems.map((item) => String(item.id)),
         }),
       });
 
@@ -81,7 +81,7 @@ const Checkout = () => {
 
       setConfirmation({
         orderId: data.orderId,
-        shipDate: data.shipDate,
+        estimatedShipDate: data.estimatedShipDate,
       });
     } catch (error) {
       setError(

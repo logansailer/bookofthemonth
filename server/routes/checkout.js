@@ -4,16 +4,16 @@ const router = express.Router();
 
 router.post("/", (req, res) => {
   try {
-    const { cart } = req.body;
+    const { bookIds } = req.body;
 
-    if (!cart || cart.length === 0) {
+    if (!bookIds || bookIds.length === 0) {
       return res.status(400).json({
         success: false,
         message: "Your cart is empty.",
       });
     }
 
-    // Assumption: not stored so this would be functionally useless. A real application would have a "Orders" database where info like this is saved.
+    // Assumption: not stored so this would be functionally useless. A real application would have a "Orders" database where info like this is saved and the bookIds are saved.
     const orderId = `BOTM-${Math.floor(100000 + Math.random() * 900000)}`;
 
     const shipDate = new Date();
@@ -23,7 +23,7 @@ router.post("/", (req, res) => {
     res.status(200).json({
       success: true,
       orderId,
-      shipDate: shipDate.toISOString().split("T")[0],
+      estimatedShipDate: shipDate.toISOString().split("T")[0],
     });
   } catch (error) {
     console.error(error);

@@ -10,7 +10,7 @@ const Footer = () => {
             </a>
           </p>
           <p className="text-sm tracking-wide hover:text-gray-300 duration-300">
-            <a href="www.linkedin.com/in/logan-sailer">LinkedIn</a>
+            <a href="https://linkedin.com/in/logan-sailer">LinkedIn</a>
           </p>
           <p className="text-sm tracking-wide hover:text-gray-300 duration-300">
             <a href="https://logan-sailer.netlify.app/">Portfolio</a>
