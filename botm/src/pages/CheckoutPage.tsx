@@ -100,6 +100,7 @@ const Checkout = () => {
     );
   }
 
+  // tradeoff: confirmation is built in checkout rather than a separate route. This stops a user from hitting a confirmation page without a valid order, but doesn't allow for an invalid order page, instead it is just displayed above the "Place Order" button
   if (confirmation) {
     return (
       <div className="mx-auto min-h-[calc(100vh-263px)] max-w-3xl py-15 text-center">
@@ -115,7 +116,7 @@ const Checkout = () => {
 
           <p className="mt-4">
             Ship Date:{" "}
-            <span className="font-semibold">{confirmation.shipDate}</span>
+            <span className="font-semibold">{confirmation.estimatedShipDate}</span>
           </p>
         </div>
       </div>
